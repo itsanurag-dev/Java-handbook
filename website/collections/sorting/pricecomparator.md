@@ -1,0 +1,10 @@
+# PriceComparator
+
+- **Package:** `dev.anurag.javahandbook.collections.sorting`
+- **Source Code:** [PriceComparator.java](https://github.com/itsanurag-dev/Java-handbook/blob/main/src/main/java/dev/anurag/javahandbook/collections/sorting/PriceComparator.java)
+
+---
+
+## Source Implementation
+
+<<< @/../src/main/java/dev/anurag/javahandbook/collections/sorting/PriceComparator.java
