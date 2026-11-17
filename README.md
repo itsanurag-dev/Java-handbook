@@ -1,114 +1,68 @@
-# Java-Programming
+# Modern Java Handbook
 
-A comprehensive collection of Java programming projects, exercises, and learning resources. This repository is designed for students, educators, and self-learners who want to master Java programming from basics to advanced concepts.
+[![Build Status](https://github.com/itsanurag-dev/Java-handbook/actions/workflows/pages.yml/badge.svg)](https://github.com/itsanurag-dev/Java-handbook/actions)
+[![Documentation Portal](https://img.shields.io/badge/docs-GitHub%20Pages-blue.svg)](https://itsanurag-dev.github.io/Java-handbook/)
+[![Java 21 LTS](https://img.shields.io/badge/Java-21%20LTS-orange.svg)](https://openjdk.org/projects/jdk/21/)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-## Table of Contents
+> An engineering reference, concurrency deep-dive, and senior interview preparation handbook covering core JVM mechanics, modern Java 21 LTS features, and test-driven architecture.
 
-- [About](#about)
-- [Features](#features)
-- [Project Structure](#project-structure)
-- [Getting Started](#getting-started)
-- [Usage](#usage)
-- [Learning Resources](#learning-resources)
-- [Contribution Guidelines](#contribution-guidelines)
-- [FAQ](#faq)
-- [License](#license)
-- [Contact](#contact)
+📖 **Live Web Portal & Documentation:** [https://itsanurag-dev.github.io/Java-handbook/](https://itsanurag-dev.github.io/Java-handbook/)
 
-## About
+---
 
-This repository contains a wide variety of Java programs, ranging from beginner-level exercises to more complex projects. The code is organized by topic and difficulty, making it easy to navigate and find relevant examples. Each program includes comments and explanations to help you understand the logic and Java syntax.
+## Architecture & Topic Directory
 
-## Features
+* [**Modern Java 21**](src/main/java/dev/anurag/javahandbook/modern): Algebraic Data Types via `sealed interface`, immutable `record` types, and exhaustive pattern matching `switch`.
+* [**Concurrency & Multithreading**](src/main/java/dev/anurag/javahandbook/concurrency): Project Loom virtual threads, monitor synchronization (`synchronized`, `wait()`, `notifyAll()`), explicit locks (`ReentrantLock`), `CompletableFuture` async pipelines, bounded blocking queues, and deadlock detection.
+* [**Collections Framework**](src/main/java/dev/anurag/javahandbook/collections): `SimpleHashMap` internals (bitmask hashing `(n - 1) & hash`, dynamic rehashing, collision chaining), custom LRU caches, fail-fast iterators, and `Comparable`/`Comparator` sorting.
+* [**Object-Oriented Design**](src/main/java/dev/anurag/javahandbook/oop): Thread-safe singleton patterns (Double-Checked Locking with `volatile`, Bill Pugh Holder, Enum Singleton), deep immutability, polymorphic dispatch, and encapsulation.
+* [**Language Fundamentals**](src/main/java/dev/anurag/javahandbook/fundamentals): Class and static initialization order, memory semantics, equality contracts (`equals`/`hashCode`), string pool mechanics, and `java.time`.
+* [**Security & Cryptography**](src/main/java/dev/anurag/javahandbook/security): Salted `PBKDF2WithHmacSHA256` password hashing (65,536 iterations, constant-time `slowEquals` against timing attacks), and authenticated AES-256-GCM encryption.
+* [**I/O, Persistence & Exceptions**](src/main/java/dev/anurag/javahandbook/io): Modern NIO.2 channels, serialization best practices, and parameterized JDBC queries.
+* [**Interview Algorithms**](src/main/java/dev/anurag/javahandbook/interview): Algorithmic interview problems with time/space complexity analysis and automated unit test assertions.
 
-- Covers Java basics, OOP, data structures, algorithms, file I/O, exception handling, and more
-- Code examples for common interview questions and coding challenges
-- Well-documented and commented code for easier understanding
-- Organized by topic and difficulty level
-- Suitable for both academic use and self-study
-- Includes sample input/output and expected results
-
-## Project Structure
-
-```
-Java-Programming/
-│
-├── basics/               # Fundamental Java programs and syntax
-├── oops/                 # Object-oriented programming examples
-├── data-structures/      # Implementations of stacks, queues, linked lists, trees, etc.
-├── algorithms/           # Sorting, searching, recursion, dynamic programming
-├── file-io/              # Reading from and writing to files
-├── exceptions/           # Exception handling examples
-├── projects/             # Mini-projects and real-world applications
-├── README.md             # Project documentation
-└── LICENSE               # License information
-```
+---
 
 ## Getting Started
 
 ### Prerequisites
+- **JDK 21 LTS** or newer (OpenJDK, Temurin, or Oracle JDK)
+- **Apache Maven 3.9+**
+- **Node.js 18+** (for the VitePress documentation portal)
 
-- Java Development Kit (JDK) 8 or higher
-- Git (for cloning the repository)
-- An IDE like IntelliJ IDEA, Eclipse, NetBeans, or a text editor such as VS Code
+### Build and Verify
+Compile the entire project and run all deterministic test suites:
+```bash
+mvn clean test
+```
 
-### Installation
+### Running the Documentation Portal Locally
+```bash
+cd website
+npm install
+npm run docs:dev
+```
+Open [http://localhost:5173/Java-handbook/](http://localhost:5173/Java-handbook/) to browse the interactive portal.
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/anurag-tiwari-3108/Java-Programming.git
-   ```
-2. Open the project folder in your IDE.
-3. Build the project if required by your IDE.
+### Running a Specific Interactive Demo
+Every module includes runnable classes with structured console execution:
+```bash
+# Producer-Consumer Bounded Queue Demo
+mvn compile exec:java -Dexec.mainClass="dev.anurag.javahandbook.concurrency.producerconsumer.BoundedBlockingQueue"
 
-## Usage
+# Project Loom Virtual Threads Demo
+mvn compile exec:java -Dexec.mainClass="dev.anurag.javahandbook.concurrency.virtualthreads.VirtualThreadsDemo"
+```
 
-1. Browse to the directory containing the topic or example you want to run.
-2. Compile the Java file:
-   ```bash
-   javac FileName.java
-   ```
-3. Run the compiled program:
-   ```bash
-   java FileName
-   ```
-4. Review the code comments for educational insights.
+---
 
-## Learning Resources
+## Learning Path
 
-- [Official Java Documentation](https://docs.oracle.com/javase/tutorial/)
-- [Java Programming Cheatsheet](https://introcs.cs.princeton.edu/java/11cheatsheet/)
-- [Geeks for Geeks: Java Programming](https://www.geeksforgeeks.org/java/)
-- [Java Design Patterns](https://refactoring.guru/design-patterns/java)
-- [LeetCode Java Problems](https://leetcode.com/problemset/all/?language=Java)
+Follow the structured [Curriculum Roadmap](docs/roadmap.md) to navigate from foundational JVM concepts to advanced concurrent and distributed primitives.
 
-## Contribution Guidelines
+---
 
-- Fork the repository and create a new branch for your feature or bugfix.
-- Write clear, concise commit messages.
-- Comment your code and follow the existing code style.
-- Submit a pull request with a description of your changes.
-- For major changes, open an issue first to discuss your proposal.
-
-## FAQ
-
-### Who can contribute?
-Anyone interested in Java programming is welcome to contribute!
-
-### How do I report a bug or request a new feature?
-Open an issue in the repository with details about the bug or feature request.
-
-### Can I use these codes for my assignment or project?
-Yes, but please understand the code and give credit where appropriate.
-
-### Where can I find more Java learning resources?
-See the [Learning Resources](#learning-resources) section above.
-
-## License
-
-This repository is licensed under the MIT License. See [LICENSE](LICENSE) for more details.
-
-## Contact
-
-Created by [Anurag Tiwari](https://github.com/anurag-tiwari-3108)  
-For questions, suggestions, or collaborations, feel free to open an issue or contact me via GitHub.
+## Contributing & Code Style
+Please review [CONTRIBUTING.md](CONTRIBUTING.md) and [CHANGELOG.md](CHANGELOG.md) before submitting pull requests. All contributions must compile cleanly with `mvn test` and maintain automated JUnit 5 coverage.
