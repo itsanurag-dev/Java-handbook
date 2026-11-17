@@ -3,8 +3,8 @@ package com.codex.lang.java.basic;
 
 /**
  * Make your class final, so that no other classes can extend it.
- * Make all your fields final, so that they’re initialized only once inside the constructor and never modified afterward.
- * Don’t expose setter methods.
+ * Make all your fields final, so that theyÂ’re initialized only once inside the constructor and never modified afterward.
+ * DonÂ’t expose setter methods.
  * When exposing methods which modify the state of the class, you must always return a new instance of the class.
  * If the class holds a mutable object:
  * Inside the constructor, make sure to use a clone copy of the passed argument and never set your mutable 
