@@ -22,3 +22,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed committed binary artifact `resources/serialized-object.ser`.
 - Deleted insecure and broken cryptography demos (MD5, Triple-DES).
 - Purged hardcoded internal corporate IP and database credentials.
+
